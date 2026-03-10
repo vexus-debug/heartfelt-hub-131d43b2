@@ -62,7 +62,7 @@ export function useScanner(settings: ScannerSettings, watchlist: WatchlistItem[]
           setAlerts(prev => {
             // Merge server alerts with local, dedup by id
             const existing = new Set(prev.map(a => a.id));
-            const newAlerts = (alertsRow.data as AlertEntry[]).filter(a => !existing.has(a.id));
+            const newAlerts = (alertsRow.data as unknown as AlertEntry[]).filter(a => !existing.has(a.id));
             return [...newAlerts, ...prev].slice(0, MAX_ALERTS);
           });
         }
