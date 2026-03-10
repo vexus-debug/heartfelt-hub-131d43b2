@@ -13,6 +13,7 @@ import { ALL_TIMEFRAMES } from '@/types/scanner';
 
 const MAX_ALERTS = 200;
 const TOP_SYMBOLS_COUNT = 50;
+const BATCH_SIZE = 6;
 
 export function useScanner(settings: ScannerSettings, watchlist: WatchlistItem[]) {
   const [assets, setAssets] = useState<Map<string, AssetTrend>>(new Map());
