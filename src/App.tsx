@@ -19,17 +19,19 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <PatternScannerProvider>
-          <AppLayout>
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/candlestick-patterns" element={<CandlestickPatterns />} />
-              <Route path="/chart-patterns" element={<ChartPatterns />} />
-              <Route path="/market-structure" element={<MarketStructure />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AppLayout>
-        </PatternScannerProvider>
+        <ScannerProvider>
+          <PatternScannerProvider>
+            <AppLayout>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/candlestick-patterns" element={<CandlestickPatterns />} />
+                <Route path="/chart-patterns" element={<ChartPatterns />} />
+                <Route path="/market-structure" element={<MarketStructure />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AppLayout>
+          </PatternScannerProvider>
+        </ScannerProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
